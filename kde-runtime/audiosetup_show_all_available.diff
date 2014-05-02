@@ -1,0 +1,14 @@
+Description: Show all available sound card profiles
+---
+
+--- kde-runtime-4.13.0.orig/phonon/kcm/audiosetup.cpp
++++ kde-runtime-4.13.0/phonon/kcm/audiosetup.cpp
+@@ -366,7 +366,7 @@ void AudioSetup::updateCard(const pa_car
+         const quint32 priority = profile->priority;
+         const QPair<QString, QString> name(profile->name ? QString::fromUtf8(profile->name) : QString(),
+                                            profile->description ? QString::fromUtf8(profile->description) : QString());
+-        info.profiles.insert(priority, name);
++        info.profiles.insertMulti(priority, name);
+     }
+ 
+     if (pInfo->active_profile)
